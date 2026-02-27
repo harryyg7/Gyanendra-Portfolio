@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyanendra Kr. | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #fafaf8;
+            color: #1a1e24;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #eae6de;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .subhead {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #3a4a5c;
+            max-width: 750px;
+            margin-bottom: 2.5rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        /* Header with profile image */
+        .header-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #efebe7;
+        }
+
+        .profile-area {
+            display: flex;
+            flex: 2;
+            min-width: 280px;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #a85e3a;
+            background: #eae6de;
+        }
+
+        .title-area {
+            flex: 1;
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #a85e3a;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-header {
+            flex: 1;
+            min-width: 240px;
+            background: #f4f2ef;
+            padding: 1.5rem;
+            border-radius: 18px;
+            border-left: 4px solid #a85e3a;
+        }
+
+        .contact-info-header p {
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info-header a {
+            color: #1a1e24;
+            text-decoration: none;
+            border-bottom: 1px dotted #a85e3a;
+        }
+
+        .contact-info-header a:hover {
+            color: #a85e3a;
+        }
+
+        /* About Me details grid */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid #efebe7;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6b5f54;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Cards for Education & Experience */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 1.8rem;
+            border-radius: 24px;
+            border: 1px solid #efebe7;
+            transition: transform 0.1s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-sub {
+            font-size: 1rem;
+            color: #a85e3a;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-desc {
+            color: #2a333c;
+            font-size: 0.95rem;
+        }
+
+        /* Services section with images */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-item {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid #efebe7;
+            text-align: center;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            background: #eae6de;
+        }
+
+        .service-item h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .tag {
+            background: #f0ede9;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #3a2e26;
+        }
+
+        /* Download CV Button */
+        .cv-section {
+            text-align: center;
+            margin: 4rem 0 2rem;
+        }
+
+        .cv-button {
+            display: inline-block;
+            background: #a85e3a;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 1rem 3rem;
+            border-radius: 60px;
+            text-decoration: none;
+            border: 2px solid #a85e3a;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 6px 12px rgba(168,94,58,0.2);
+        }
+
+        .cv-button:hover {
+            background: transparent;
+            color: #a85e3a;
+        }
+
+        /* Footer Contact */
+        .footer-contact {
+            margin-top: 4rem;
+            background: #1a1e24;
+            color: #f4f2ef;
+            padding: 3rem 2rem;
+            border-radius: 32px;
+            text-align: center;
+        }
+
+        .footer-contact h2 {
+            color: #f4f2ef;
+            border-bottom-color: #a85e3a;
+        }
+
+        .footer-contact .contact-big {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid #a85e3a;
+            padding-bottom: 4px;
+        }
+
+        .footer-contact .contact-big:hover {
+            color: #d4b6a0;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            h1 { font-size: 2.8rem; }
+            .container { padding: 1.5rem; }
+            .profile-area { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .header-row { flex-direction: column; gap: 1.5rem; }
+            .footer-contact .contact-big { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with profile image -->
+        <div class="header-row">
+            <div class="profile-area">
+                <img class="profile-image" src="https://drive.google.com/thumbnail?id=1ZH6RITcGiYqQbAsUIUNPTQEqmj6u2X0D&sz=w1000" alt="Gyanendra Kr.">
+                <div class="title-area">
+                    <div class="greeting">👋 Hello I'm</div>
+                    <h1>Gyanendra Kr.</h1>
+                    <div class="subhead">
+                        Content Writer, Graphic Designer, and UI/UX Developer crafting clear stories and intuitive visuals.<br>
+                        Based in Noida, U.P., India, delivering design-led digital experiences. Helping brands communicate better through words, design, and user-focused interfaces since 2024.
+                    </div>
+                </div>
+            </div>
+            <div class="contact-info-header">
+                <p>📍 Noida, U.P., India</p>
+                <p>📧 <a href="mailto:gyanendra0710@gmail.com">gyanendra0710@gmail.com</a></p>
+                <p>📞 <a href="tel:+917765099127">(+91) 77650 99127</a></p>
+                <p>🌐 <a href="https://harryyg7.github.io/gyanendra/" target="_blank">harryyg7.github.com/gyanendra</a></p>
+                <p>🐦 <a href="https://twitter.com/harryyg7" target="_blank">@harryyg7</a></p>
+            </div>
+        </div>
+
+        <!-- About Me / Personal Details -->
+        <div class="section">
+            <h2>About Me</h2>
+            <div class="details-grid">
+                <div class="detail-item"><span class="detail-label">Phone</span><span class="detail-value">+91 77650-99127</span></div>
+                <div class="detail-item"><span class="detail-label">Twitter</span><span class="detail-value">@harryyg7</span></div>
+                <div class="detail-item"><span class="detail-label">Address</span><span class="detail-value">Noida, U.P., India</span></div>
+                <div class="detail-item"><span class="detail-label">Nationality</span><span class="detail-value">Indian</span></div>
+                <div class="detail-item"><span class="detail-label">Email</span><span class="detail-value">gyanendra0710@gmail.com</span></div>
+                <div class="detail-item"><span class="detail-label">Freelancer</span><span class="detail-value">Available</span></div>
+            </div>
+        </div>
+
+        <!-- Education Section (separated) -->
+        <div class="section">
+            <h2>🎓 Education</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-title">Gautam Buddha University</div>
+                    <div class="card-sub">B.Tech in Information Technology, 2024</div>
+                    <div class="card-desc">I completed my B.Tech in Information Technology in the year 2024.</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">GyanJyoti Residential Public School</div>
+                    <div class="card-sub">Class 12th Intermediate (CBSE), 2020</div>
+                    <div class="card-desc">Completed my class 12th Intermediate exams in the year 2020 via private candidate exams conducted by CBSE.</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Ishan International Public School</div>
+                    <div class="card-sub">Metriculation, 2020</div>
+                    <div class="card-desc">Completed my Metriculation exams from Ishan International Public School in 2020.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section (separated) -->
+        <div class="section">
+            <h2>💼 Experience</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-title">Wander Nova Tourism</div>
+                    <div class="card-sub">Content Writer, Jan 2026 — present</div>
+                    <div class="card-desc">I joined Wander Nova tourism in Jan 2026 as a content writer.</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Red Dash Media</div>
+                    <div class="card-sub">Content Writer (Saket branch), 2 months</div>
+                    <div class="card-desc">Worked as a content writer for Red Dash media saket branch for 2 months before switching to full time freelancing.</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Hobotrek</div>
+                    <div class="card-sub">Content Writer & Website Manager, 2022 – 2023</div>
+                    <div class="card-desc">From 2022 to start of 2023 I worked as a content writer and website manager for Hobotrek which eventually shut down.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Services with images -->
+        <div class="section">
+            <h2>My Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <img class="service-image" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop" alt="Content Writing">
+                    <h4>High Quality Content</h4>
+                    <p>With over five years of experience I can write content in the smoothest way possible while sticking with the latest S.E.O. guidelines.</p>
+                    <div class="service-tags"><span class="tag">S.E.O. compliant</span><span class="tag">Short time</span></div>
+                </div>
+                <div class="service-item">
+                    <img class="service-image" src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop" alt="UI/UX Design">
+                    <h4>UI/UX Design</h4>
+                    <p>Can create websites that are visually good looking in a very short span of time.</p>
+                    <div class="service-tags"><span class="tag">Content</span><span class="tag">Browser compliant</span></div>
+                </div>
+                <div class="service-item">
+                    <img class="service-image" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=300&fit=crop" alt="Graphic Design">
+                    <h4>Graphic Design</h4>
+                    <p>Can create stunning visuals as per your requirements. Comfortable with Adobe Photoshop, Illustrator as well as Canva.</p>
+                    <div class="service-tags"><span class="tag">Banners</span><span class="tag">Posters</span><span class="tag">Logos</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download CV Button (replaces client feedback) -->
+        <div class="cv-section">
+            <a href="https://drive.google.com/uc?export=download&id=1YDKcBmwPaymDq_L_6xDUn1bO3lfLMxr1" class="cv-button" download>📄 Download CV</a>
+            <p style="margin-top: 1rem; color: #6b5f54;">Get my full resume in PDF format</p>
+        </div>
+
+        <!-- Contact Footer -->
+        <div class="footer-contact">
+            <h2>Contact Me</h2>
+            <a href="tel:+917765099127" class="contact-big">(+91) 77650 99127</a>
+            <p style="margin-top: 2rem; font-size: 1.1rem; opacity: 0.8;">📧 gyanendra0710@gmail.com  |  🐦 @harryyg7  |  Noida, India</p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.6;">Based in Noida, U.P. — Available for freelance work.</p>
+        </div>
+
+        <!-- subtle copyright -->
+        <p style="text-align: center; margin-top: 2rem; color: #6b5f54; font-size: 0.85rem;">© Gyanendra Kr. — updated 2026</p>
+    </div>
+</body>
+</html>
